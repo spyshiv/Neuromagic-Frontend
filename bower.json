@@ -1,0 +1,30 @@
+{
+  "name": "neuromagic",
+  "description": "Train your own machine learning models with neuromagic",
+  "main": "index.js",
+  "authors": [
+    "neuronme"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "sentiment",
+    "analysis",
+    "machine",
+    "learning",
+    "nlp"
+  ],
+  "homepage": "https://github.com/neuronme/neuromagic",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.6.5",
+    "materialize": "0.99.0",
+    "angular-ui-router": "1.0.5"
+  }
+}

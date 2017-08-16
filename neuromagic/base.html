@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="neuromagicApp">
+
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title ng-bind="PageTitle"></title>
+    <link rel="icon" type="text/css" href="/static/images/logo_square.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- inject:js -->
+    <!-- endinject -->
+    <!-- =========== -->
+    <!-- inject:configs:js -->
+    <!-- endinject -->
+    <!-- inject:constants:js -->
+    <!-- endinject -->
+    <!-- inject:directives:js -->
+    <!-- endinject -->
+    <!-- inject:services:js -->
+    <!-- endinject -->
+    <!-- inject:controllers:js -->
+    <!-- endinject -->
+</head>
+
+<body>
+    <!-- Import Navbar Directive -->
+    <navbar></navbar>
+    <!-- ======================= -->
+    <div class="main-container">
+        <!-- ui-View to load different templates -->
+        <ui-view></ui-view>
+    </div>
+    <!-- Import Footer Directive-->
+    <sitefooter></sitefooter>
+    <!-- ====================== -->
+</body>
+
+</html>
