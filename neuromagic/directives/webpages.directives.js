@@ -14,3 +14,10 @@ neuromagicApp.directive('sitefooter', function() {
     };
 });
 
+
+neuromagicApp.directive('dashsidebar', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'modules/shared/dashsidebar.html',
+    };
+});
