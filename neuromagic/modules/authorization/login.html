@@ -1,21 +1,29 @@
 <section id="form-container">
     <div class="container">
         <div class="row">
-        	<div class="col s12">
-        		<h4 class="center-align">Login</h4>
-        	</div>
-            <form class="col s12">
-            	<div class="input-field col s6 offset-s3">
-                    <input id="email" type="email" class="validate">
+            <div class="col s12">
+                <h4 class="center-align">Login</h4>
+            </div>
+            <form name="auth_form" class="col s12" ng-submit="loginSubmit(auth_form.$valid)" novalidate>
+                <div class="input-field col s6 offset-s3">
+                    <input id="email" name="email" type="email" ng-model="FormData.email" required>
                     <label for="email">Email</label>
+                    <div ng-messages="auth_form.email.$error" ng-if="auth_form.email.$touched || auth_form.$submitted">
+                        <span class="form_warn_msg" ng-message="email">Please enter valid email address.</span>
+                        <span class="form_warn_msg" ng-message="required">Please enter your email address.</span>
+                    </div>
                 </div>
                 <div class="input-field col s6 offset-s3">
-                    <input id="password" type="password" class="validate">
+                    <input id="password" name="password" type="password" ng-model="FormData.password" ng-minlength="6" required>
                     <label for="password">Password</label>
+                    <div ng-messages="auth_form.password.$error" ng-if="auth_form.password.$touched || auth_form.$submitted">
+                        <span class="form_warn_msg" ng-message="minlength">Password is too short (min. 6 chars required)</span>
+                        <span class="form_warn_msg" ng-message="required">Please choose your password.</span>
+                    </div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="col s6 offset-s3">
-	                <button class="waves-effect waves-light btn"><i class="material-icons right">send</i>Login</button>
+                    <button type="submit" class="waves-effect waves-light btn"><i class="material-icons right">send</i>Login</button>
                 </div>
             </form>
         </div>
