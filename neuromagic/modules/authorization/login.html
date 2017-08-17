@@ -24,6 +24,12 @@
                 <div class="clearfix"></div>
                 <div class="col s6 offset-s3">
                     <button type="submit" class="waves-effect waves-light btn"><i class="material-icons right">send</i>Login</button>
+                    <br>
+                    <p>Don't have an account? <a ui-sref="signup">Signup</a></p>
+                </div>
+                <div class="clearfix"></div>
+                <div ng-if="isFormError" class="col s6 offset-s3 error-messages">
+                    <p>{{formError}}</p>
                 </div>
             </form>
         </div>

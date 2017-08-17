@@ -1,7 +1,7 @@
-neuromagicApp.controller('registrationCtrl', ["$scope", "$location", "$http", '$timeout', 'AuthService',
-    function($scope, $location, $http, $timeout, AuthService) {
+neuromagicApp.controller('signupCtrl', ["$scope", "$location", "$http", '$timeout', '$state','AuthService',
+    function($scope, $location, $http, $timeout, $state, AuthService) {
         $scope.isFormError = false;
-        $scope.signup_error = '';
+        $scope.formError = '';
         $scope.FormData = {
             email: '',
             username: '',
@@ -11,9 +11,15 @@ neuromagicApp.controller('registrationCtrl', ["$scope", "$location", "$http", '$
             if (signupFormValid) {
                 AuthService.signup($scope.FormData)
                     .then(function(response) {
-                    	console.log(response);
-                    }, function(error) {
-                        console.log(error);
+                        var status = response.status;
+                        if (status === 201){
+                            console.log("signup successfull");
+                            $state.go("login");
+                        }
+                        else{
+                            $scope.isFormError = true;
+                            $scope.formError = response.data.message
+                        }
                     });
             } else {
                 console.log("error in client side. No need to pass it in backend");
@@ -26,7 +32,7 @@ neuromagicApp.controller('registrationCtrl', ["$scope", "$location", "$http", '$
 neuromagicApp.controller('loginCtrl', ['$scope', '$rootScope', '$location', '$state', 'AuthService',
     function($scope, $rootScope, $location, $state, AuthService) {
         $scope.isFormError = false;
-        $scope.signup_error = '';
+        $scope.formError = '';
         $scope.FormData = {
             email: '',
             password: ''
@@ -35,9 +41,15 @@ neuromagicApp.controller('loginCtrl', ['$scope', '$rootScope', '$location', '$st
             if (loginFormValid) {
                 AuthService.login($scope.FormData)
                     .then(function(response) {
-                        console.log(response);
-                    }, function(error) {
-                        console.log(error);
+                        var status = response.status;
+                        if (status === 200){
+                            console.log("login successfull");
+                            $state.go("dashboard");
+                        }
+                        else{
+                            $scope.isFormError = true;
+                            $scope.formError = response.data.message
+                        }
                     });
             } else {
                 console.log("error in client side. No need to pass it in backend");

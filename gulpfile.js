@@ -225,7 +225,10 @@ On change in sass file the sass file are compiled into css
 and export to css directory automatically
 ==========*/
 gulp.task('sass', function() {
-    return gulp.src('neuromagic/static/scss/**/*.scss')
+    return gulp.src([
+            'neuromagic/static/scss/base.scss',
+            'neuromagic/static/scss/**/*.scss'
+            ])
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('neuromagic/static/css/'));
 });

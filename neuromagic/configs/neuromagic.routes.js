@@ -13,11 +13,11 @@ neuromagicApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
         /*======================
         // Routes For Allauth //
         ======================*/
-        .state("registration", {
-            url: auth_url + "registration",
-            templateUrl: 'modules/authorization/registration.html',
-            controller: 'registrationCtrl',
-            title: "Neuromagic | Registration",
+        .state("signup", {
+            url: auth_url + "signup",
+            templateUrl: 'modules/authorization/signup.html',
+            controller: 'signupCtrl',
+            title: "Neuromagic | signup",
             authenticate: false
         })
         .state("login", {
@@ -26,6 +26,16 @@ neuromagicApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
             controller: 'loginCtrl',
             title: "Neuromagic | Login",
             authenticate: false
+        })
+        /*======================
+        // Routes For Dashboard //
+        ======================*/
+        .state("dashboard", {
+            url: auth_url + "dashboard",
+            templateUrl: 'modules/dashboard/dashboard.html',
+            controller: 'dashboardCtrl',
+            title: "Neuromagic | Dashboard",
+            authenticate: true
         })
         /*===============================
         // Routes For user Error Pages //
